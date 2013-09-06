@@ -1,0 +1,466 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Responsive Slider\n"
+"POT-Creation-Date: 2013-09-06 08:46-0300\n"
+"PO-Revision-Date: 2013-09-06 17:58-0300\n"
+"Last-Translator: Marcelo Torres <falecom@marcelotorresweb.com>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../simple-responsive-slider-admin.php:45
+msgid "Simple Responsive Slider"
+msgstr "Simple Responsive Slider"
+
+#: ../simple-responsive-slider-admin.php:52
+msgid "Slides"
+msgstr "Slides"
+
+#: ../simple-responsive-slider-admin.php:56
+msgid "Crop images"
+msgstr "Recortar Imagens"
+
+#: ../simple-responsive-slider-admin.php:60
+#: ../simple-responsive-slider-admin.php:70
+msgid "Settings"
+msgstr "Configurações"
+
+#: ../simple-responsive-slider-admin.php:74
+msgid "Max-width of the slider (in pixels)"
+msgstr "Largura máxima do slider (em pixels)"
+
+#: ../simple-responsive-slider-admin.php:82
+msgid "Max-height of the slider (in pixels)"
+msgstr "Altura máxima do slider (em pixels)"
+
+#: ../simple-responsive-slider-admin.php:90
+msgid "Animate automatically"
+msgstr "Animar automaticamente"
+
+#: ../simple-responsive-slider-admin.php:95
+#: ../simple-responsive-slider-admin.php:122
+#: ../simple-responsive-slider-admin.php:133
+#: ../simple-responsive-slider-admin.php:144
+#: ../simple-responsive-slider-admin.php:155
+#: ../simple-responsive-slider-admin.php:166
+#: ../simple-responsive-slider-admin.php:193
+msgid "Yes"
+msgstr "Sim"
+
+#: ../simple-responsive-slider-admin.php:96
+#: ../simple-responsive-slider-admin.php:123
+#: ../simple-responsive-slider-admin.php:134
+#: ../simple-responsive-slider-admin.php:145
+#: ../simple-responsive-slider-admin.php:156
+#: ../simple-responsive-slider-admin.php:167
+msgid "No"
+msgstr "Não"
+
+#: ../simple-responsive-slider-admin.php:101
+msgid "Speed of the transition (in milliseconds)"
+msgstr "Velocidade da transição do slider (em milisegundos)"
+
+#: ../simple-responsive-slider-admin.php:109
+msgid "Time between slide transitions (in milliseconds)"
+msgstr "Tempo entre a transição do slider (em milisegundos)"
+
+#: ../simple-responsive-slider-admin.php:117
+msgid "Show pager"
+msgstr "Mostrar paginação"
+
+#: ../simple-responsive-slider-admin.php:128
+msgid "Show navigation"
+msgstr "Mostrar navegação"
+
+#: ../simple-responsive-slider-admin.php:139
+msgid "Randomize the order of the slides"
+msgstr "Mostrar imagens aleatórias"
+
+#: ../simple-responsive-slider-admin.php:150
+msgid "Pause on hover"
+msgstr "Parar a transição quando mouse estiver em cima"
+
+#: ../simple-responsive-slider-admin.php:161
+msgid "Pause when hovering controls"
+msgstr "Parar a transição quando mouse estiver em cima das setas de navegação"
+
+#: ../simple-responsive-slider-admin.php:172
+msgid "Text for the \"previous\" button"
+msgstr "Texto para o botão \"anterior\""
+
+#: ../simple-responsive-slider-admin.php:174
+msgid "Back"
+msgstr "Voltar"
+
+#: ../simple-responsive-slider-admin.php:180
+msgid "Text for the \"next\" button"
+msgstr "Texto para o botão próximo"
+
+#: ../simple-responsive-slider-admin.php:182
+#: ../simple-responsive-slider.php:87
+msgid "Next"
+msgstr "Próximo"
+
+#: ../simple-responsive-slider-admin.php:188
+msgid "Load default CSS for the slider"
+msgstr "Carregar CSS padrão para o slider"
+
+#: ../simple-responsive-slider-admin.php:191
+#, php-format
+msgid ""
+"If you use a custom CSS, <a href=\"%s\" class=\"thickbox\">click here and "
+"copy the default CSS</a> to use as an example."
+msgstr ""
+"Se você for usar uma CSS personalizada, <a href=\"%s\" class=\"thickbox"
+"\">Clique aqui e copie o CSS padrão</a> para usar como exemplo."
+
+#: ../simple-responsive-slider-admin.php:194
+msgid "No, I'll use a custom CSS"
+msgstr "Não, eu vou usar uma CSS personalizada"
+
+#: ../simple-responsive-slider-admin.php:201
+msgid "Add slide"
+msgstr "Adicionar slide"
+
+#: ../simple-responsive-slider-admin.php:205
+msgid "Add images and their corresponding link and captions"
+msgstr "Adicionar images e seus correspondes links e legendas"
+
+#: ../simple-responsive-slider-admin.php:212
+msgid "Crop Images"
+msgstr "Recortar Imagens"
+
+#: ../simple-responsive-slider-admin.php:219
+msgid "Click and position the crop"
+msgstr "Clique e posicione o recorte"
+
+#: ../simple-responsive-slider.php:86
+msgid "Prev"
+msgstr "Anterior"
+
+#: ../classes/options.php:101
+msgid "Add images in gallery"
+msgstr "Add imagem na galeria"
+
+#: ../classes/options.php:102
+msgid "Add in gallery"
+msgstr "Adicionar na galeria"
+
+#: ../classes/options.php:103 ../classes/options.php:463
+msgid "Remove image"
+msgstr "Remover imagem"
+
+#: ../classes/options.php:104
+msgid "Choose a file"
+msgstr "Escolha um arquivo"
+
+#: ../classes/options.php:105
+msgid "Add file"
+msgstr "Adicionar arquivo"
+
+#: ../classes/options.php:433
+msgid "Add images"
+msgstr "Adicionar Imagens"
+
+#: ../classes/options.php:438
+msgid "Save changes to finish deleting the images removed"
+msgstr "Salve as alterações para concluir a exclusão das imagens removidas"
+
+#: ../classes/options.php:464
+msgid "Clop image"
+msgstr "Recortar Imagem"
+
+#: ../classes/options.php:477
+msgid "Image link"
+msgstr "Link da imagem"
+
+#: ../classes/options.php:480
+msgid "Open in new windown/tab?"
+msgstr "Abrir em uma nova janela/aba?"
+
+#: ../classes/options.php:481
+msgid "Image caption"
+msgstr "Legenda da imagem"
+
+#: ../classes/options.php:524
+msgid "an"
+msgstr "uma"
+
+#: ../classes/options.php:526
+msgid "other"
+msgstr "outra"
+
+#: ../classes/options.php:528
+msgid "Select"
+msgstr "Selecione"
+
+#: ../classes/options.php:528
+msgid "image to crop"
+msgstr "imagem para recortar"
+
+#: ../classes/options.php:533
+msgid "Click to crop this image"
+msgstr "Clique para recortar essa imagem"
+
+#, fuzzy
+#~ msgid "If you use a custom CSS, <a href=\""
+#~ msgstr "Se você for usar uma CSS personalizada, <a href=\""
+
+#~ msgid "test"
+#~ msgstr "teste"
+
+#~ msgid ""
+#~ "If you use a custom CSS, <a href=\"#the_defalut_css\" class="
+#~ "\"get_defalut_css\"> click here and copy the default CSS </a> to use as "
+#~ "an example. \n"
+#~ "\t\t\t\t\t<div id=\"the_defalut_css\" class=\"the_defalut_css\">\n"
+#~ "\t\t\t\t\t\t<pre>\n"
+#~ ".rslides {\n"
+#~ "  position: relative;\n"
+#~ "  list-style: none;\n"
+#~ "  overflow: hidden;\n"
+#~ "  width: 100%;\n"
+#~ "  padding: 0;\n"
+#~ "  margin: 0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides li {\n"
+#~ "  -webkit-backface-visibility: hidden;\n"
+#~ "  position: absolute;\n"
+#~ "  display: none;\n"
+#~ "  width: 100%;\n"
+#~ "  left: 0;\n"
+#~ "  top: 0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides li:first-child {\n"
+#~ "  position: relative;\n"
+#~ "  display: block;\n"
+#~ "  float: left;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides img {\n"
+#~ "  display: block;\n"
+#~ "  height: auto;\n"
+#~ "  float: left;\n"
+#~ "  width: 100%;\n"
+#~ "  border: 0;\n"
+#~ "  }\n"
+#~ ".rslides_container {\n"
+#~ "  margin-bottom: 50px;\n"
+#~ "  position: relative;\n"
+#~ "  float: left;\n"
+#~ "  width: 100%;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav {\n"
+#~ "  z-index: 3;\n"
+#~ "  position: absolute;\n"
+#~ "  -webkit-tap-highlight-color: rgba(0,0,0,0);\n"
+#~ "  top: 50%;\n"
+#~ "  left: 0;\n"
+#~ "  opacity: 0.7;\n"
+#~ "  text-indent: -9999px;\n"
+#~ "  overflow: hidden;\n"
+#~ "  text-decoration: none;\n"
+#~ "  height: 61px;\n"
+#~ "  width: 38px;\n"
+#~ "  background: transparent url(\"themes/themes.gif\") no-repeat left top;\n"
+#~ "  margin-top: -55px;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav:active {\n"
+#~ "  opacity: 1.0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav.next {\n"
+#~ "  left: auto;\n"
+#~ "  background-position: right top;\n"
+#~ "  right: 0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav:focus {\n"
+#~ "  outline: none;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_tabs {\n"
+#~ "  margin-top: 10px;\n"
+#~ "  text-align: center;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_tabs li {\n"
+#~ "  display: inline;\n"
+#~ "  float: none;\n"
+#~ "  _float: left;\n"
+#~ "  *float: left;\n"
+#~ "  margin-right: 5px;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_tabs a{\n"
+#~ "  text-indent: -9999px;\n"
+#~ "  overflow: hidden;\n"
+#~ "  -webkit-border-radius: 15px;\n"
+#~ "  -moz-border-radius: 15px;\n"
+#~ "  border-radius: 15px;\n"
+#~ "  background: #ccc;\n"
+#~ "  background: rgba(0,0,0, .2);\n"
+#~ "  display: inline-block;\n"
+#~ "  _display: block;\n"
+#~ "  *display: block;\n"
+#~ "  -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);\n"
+#~ "  -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);\n"
+#~ "  box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);\n"
+#~ "  width: 9px;\n"
+#~ "  height: 9px;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_here a {\n"
+#~ "  background: #222;\n"
+#~ "  background: rgba(0,0,0, .8);\n"
+#~ "  }\n"
+#~ ".caption {\n"
+#~ "  position: absolute;\n"
+#~ "  display: block;\n"
+#~ "  bottom: -20px;\n"
+#~ "  left: 0;\n"
+#~ "  right: 0;\n"
+#~ "  padding: 15px;\n"
+#~ "  text-align: center;\n"
+#~ "  background: #000;\n"
+#~ "  background: rgba(0,0,0, .8);\n"
+#~ "  color: #fff;\n"
+#~ "}\n"
+#~ "\t\t\t\t\t\t</pre>\n"
+#~ "\t\t\t\t\t</div>"
+#~ msgstr ""
+#~ "If you use a custom CSS, <a href=\"#the_defalut_css\" class="
+#~ "\"get_defalut_css\"> click here and copy the default CSS </a> to use as "
+#~ "an example. \n"
+#~ "\t\t\t\t\t<div id=\"the_defalut_css\" class=\"the_defalut_css\">\n"
+#~ "\t\t\t\t\t\t<pre>\n"
+#~ ".rslides {\n"
+#~ "  position: relative;\n"
+#~ "  list-style: none;\n"
+#~ "  overflow: hidden;\n"
+#~ "  width: 100%;\n"
+#~ "  padding: 0;\n"
+#~ "  margin: 0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides li {\n"
+#~ "  -webkit-backface-visibility: hidden;\n"
+#~ "  position: absolute;\n"
+#~ "  display: none;\n"
+#~ "  width: 100%;\n"
+#~ "  left: 0;\n"
+#~ "  top: 0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides li:first-child {\n"
+#~ "  position: relative;\n"
+#~ "  display: block;\n"
+#~ "  float: left;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides img {\n"
+#~ "  display: block;\n"
+#~ "  height: auto;\n"
+#~ "  float: left;\n"
+#~ "  width: 100%;\n"
+#~ "  border: 0;\n"
+#~ "  }\n"
+#~ ".rslides_container {\n"
+#~ "  margin-bottom: 50px;\n"
+#~ "  position: relative;\n"
+#~ "  float: left;\n"
+#~ "  width: 100%;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav {\n"
+#~ "  z-index: 3;\n"
+#~ "  position: absolute;\n"
+#~ "  -webkit-tap-highlight-color: rgba(0,0,0,0);\n"
+#~ "  top: 50%;\n"
+#~ "  left: 0;\n"
+#~ "  opacity: 0.7;\n"
+#~ "  text-indent: -9999px;\n"
+#~ "  overflow: hidden;\n"
+#~ "  text-decoration: none;\n"
+#~ "  height: 61px;\n"
+#~ "  width: 38px;\n"
+#~ "  background: transparent url(\"themes/themes.gif\") no-repeat left top;\n"
+#~ "  margin-top: -55px;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav:active {\n"
+#~ "  opacity: 1.0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav.next {\n"
+#~ "  left: auto;\n"
+#~ "  background-position: right top;\n"
+#~ "  right: 0;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_nav:focus {\n"
+#~ "  outline: none;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_tabs {\n"
+#~ "  margin-top: 10px;\n"
+#~ "  text-align: center;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_tabs li {\n"
+#~ "  display: inline;\n"
+#~ "  float: none;\n"
+#~ "  _float: left;\n"
+#~ "  *float: left;\n"
+#~ "  margin-right: 5px;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_tabs a{\n"
+#~ "  text-indent: -9999px;\n"
+#~ "  overflow: hidden;\n"
+#~ "  -webkit-border-radius: 15px;\n"
+#~ "  -moz-border-radius: 15px;\n"
+#~ "  border-radius: 15px;\n"
+#~ "  background: #ccc;\n"
+#~ "  background: rgba(0,0,0, .2);\n"
+#~ "  display: inline-block;\n"
+#~ "  _display: block;\n"
+#~ "  *display: block;\n"
+#~ "  -webkit-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);\n"
+#~ "  -moz-box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);\n"
+#~ "  box-shadow: inset 0 0 2px 0 rgba(0,0,0,.3);\n"
+#~ "  width: 9px;\n"
+#~ "  height: 9px;\n"
+#~ "  }\n"
+#~ "\n"
+#~ ".rslides_here a {\n"
+#~ "  background: #222;\n"
+#~ "  background: rgba(0,0,0, .8);\n"
+#~ "  }\n"
+#~ ".caption {\n"
+#~ "  position: absolute;\n"
+#~ "  display: block;\n"
+#~ "  bottom: -20px;\n"
+#~ "  left: 0;\n"
+#~ "  right: 0;\n"
+#~ "  padding: 15px;\n"
+#~ "  text-align: center;\n"
+#~ "  background: #000;\n"
+#~ "  background: rgba(0,0,0, .8);\n"
+#~ "  color: #fff;\n"
+#~ "}\n"
+#~ "\t\t\t\t\t\t</pre>\n"
+#~ "\t\t\t\t\t</div>"
