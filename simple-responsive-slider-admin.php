@@ -44,6 +44,11 @@ add_action('admin_head', 'load_script_admin');
 //New object for create settings
 $simpleresponsiveslider_options = new Simpleresponsiveslider_Options( __( 'Simple Responsive Slider', 'simple-responsive-slider' ), 'simple-responsive-slider' );
 
+if ( $wp_version < 3.6 && $_GET['page'] == 'simple-responsive-slider') {
+    echo '<div class="error"><p><strong>';
+	echo __( 'This plugin not is supported in current WordPress version. <a href="./update-core.php">Please update the WordPress for version 3.6 or above.</a>', 'simple-responsive-slider' );
+	echo '</strong></p></div><style type="text/css">p.submit{display:none}</style>';
+}else{
 //Create tabs
 $simpleresponsiveslider_options->set_tabs(
 	array(
@@ -222,4 +227,5 @@ $simpleresponsiveslider_options->set_fields(
 		),
 	)
 );
+}
 ?>
