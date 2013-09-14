@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Responsive Slider\n"
-"POT-Creation-Date: 2013-09-06 08:46-0300\n"
-"PO-Revision-Date: 2013-09-06 17:58-0300\n"
+"POT-Creation-Date: 2013-09-14 10:08-0300\n"
+"PO-Revision-Date: 2013-09-14 10:09-0300\n"
 "Last-Translator: Marcelo Torres <falecom@marcelotorresweb.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -21,100 +21,108 @@ msgstr ""
 msgid "Simple Responsive Slider"
 msgstr "Simple Responsive Slider"
 
-#: ../simple-responsive-slider-admin.php:52
+#: ../simple-responsive-slider-admin.php:49
+msgid ""
+"This plugin not is supported in current WordPress version. <a href=\"./"
+"update-core.php\">Please update the WordPress for version 3.6 or above.</a>"
+msgstr ""
+"Este plugin não é suportado nesta versão do WordPress <a href=\"./update-"
+"core.php\">Por favor, atualize o WordPress para a versão 3.6 ou superior.</a>"
+
+#: ../simple-responsive-slider-admin.php:57
 msgid "Slides"
 msgstr "Slides"
 
-#: ../simple-responsive-slider-admin.php:56
+#: ../simple-responsive-slider-admin.php:61
 msgid "Crop images"
 msgstr "Recortar Imagens"
 
-#: ../simple-responsive-slider-admin.php:60
-#: ../simple-responsive-slider-admin.php:70
+#: ../simple-responsive-slider-admin.php:65
+#: ../simple-responsive-slider-admin.php:75
 msgid "Settings"
 msgstr "Configurações"
 
-#: ../simple-responsive-slider-admin.php:74
+#: ../simple-responsive-slider-admin.php:79
 msgid "Max-width of the slider (in pixels)"
 msgstr "Largura máxima do slider (em pixels)"
 
-#: ../simple-responsive-slider-admin.php:82
+#: ../simple-responsive-slider-admin.php:87
 msgid "Max-height of the slider (in pixels)"
 msgstr "Altura máxima do slider (em pixels)"
 
-#: ../simple-responsive-slider-admin.php:90
+#: ../simple-responsive-slider-admin.php:95
 msgid "Animate automatically"
 msgstr "Animar automaticamente"
 
-#: ../simple-responsive-slider-admin.php:95
-#: ../simple-responsive-slider-admin.php:122
-#: ../simple-responsive-slider-admin.php:133
-#: ../simple-responsive-slider-admin.php:144
-#: ../simple-responsive-slider-admin.php:155
-#: ../simple-responsive-slider-admin.php:166
-#: ../simple-responsive-slider-admin.php:193
+#: ../simple-responsive-slider-admin.php:100
+#: ../simple-responsive-slider-admin.php:127
+#: ../simple-responsive-slider-admin.php:138
+#: ../simple-responsive-slider-admin.php:149
+#: ../simple-responsive-slider-admin.php:160
+#: ../simple-responsive-slider-admin.php:171
+#: ../simple-responsive-slider-admin.php:198
 msgid "Yes"
 msgstr "Sim"
 
-#: ../simple-responsive-slider-admin.php:96
-#: ../simple-responsive-slider-admin.php:123
-#: ../simple-responsive-slider-admin.php:134
-#: ../simple-responsive-slider-admin.php:145
-#: ../simple-responsive-slider-admin.php:156
-#: ../simple-responsive-slider-admin.php:167
+#: ../simple-responsive-slider-admin.php:101
+#: ../simple-responsive-slider-admin.php:128
+#: ../simple-responsive-slider-admin.php:139
+#: ../simple-responsive-slider-admin.php:150
+#: ../simple-responsive-slider-admin.php:161
+#: ../simple-responsive-slider-admin.php:172
 msgid "No"
 msgstr "Não"
 
-#: ../simple-responsive-slider-admin.php:101
+#: ../simple-responsive-slider-admin.php:106
 msgid "Speed of the transition (in milliseconds)"
 msgstr "Velocidade da transição do slider (em milisegundos)"
 
-#: ../simple-responsive-slider-admin.php:109
+#: ../simple-responsive-slider-admin.php:114
 msgid "Time between slide transitions (in milliseconds)"
 msgstr "Tempo entre a transição do slider (em milisegundos)"
 
-#: ../simple-responsive-slider-admin.php:117
+#: ../simple-responsive-slider-admin.php:122
 msgid "Show pager"
 msgstr "Mostrar paginação"
 
-#: ../simple-responsive-slider-admin.php:128
+#: ../simple-responsive-slider-admin.php:133
 msgid "Show navigation"
 msgstr "Mostrar navegação"
 
-#: ../simple-responsive-slider-admin.php:139
+#: ../simple-responsive-slider-admin.php:144
 msgid "Randomize the order of the slides"
 msgstr "Mostrar imagens aleatórias"
 
-#: ../simple-responsive-slider-admin.php:150
+#: ../simple-responsive-slider-admin.php:155
 msgid "Pause on hover"
 msgstr "Parar a transição quando mouse estiver em cima"
 
-#: ../simple-responsive-slider-admin.php:161
+#: ../simple-responsive-slider-admin.php:166
 msgid "Pause when hovering controls"
 msgstr "Parar a transição quando mouse estiver em cima das setas de navegação"
 
-#: ../simple-responsive-slider-admin.php:172
+#: ../simple-responsive-slider-admin.php:177
 msgid "Text for the \"previous\" button"
 msgstr "Texto para o botão \"anterior\""
 
-#: ../simple-responsive-slider-admin.php:174
+#: ../simple-responsive-slider-admin.php:179
 msgid "Back"
 msgstr "Voltar"
 
-#: ../simple-responsive-slider-admin.php:180
+#: ../simple-responsive-slider-admin.php:185
 msgid "Text for the \"next\" button"
 msgstr "Texto para o botão próximo"
 
-#: ../simple-responsive-slider-admin.php:182
-#: ../simple-responsive-slider.php:87
+#: ../simple-responsive-slider-admin.php:187
+#: ../simple-responsive-slider.php:84
 msgid "Next"
 msgstr "Próximo"
 
-#: ../simple-responsive-slider-admin.php:188
+#: ../simple-responsive-slider-admin.php:193
 msgid "Load default CSS for the slider"
 msgstr "Carregar CSS padrão para o slider"
 
-#: ../simple-responsive-slider-admin.php:191
+#: ../simple-responsive-slider-admin.php:196
 #, php-format
 msgid ""
 "If you use a custom CSS, <a href=\"%s\" class=\"thickbox\">click here and "
@@ -123,27 +131,27 @@ msgstr ""
 "Se você for usar uma CSS personalizada, <a href=\"%s\" class=\"thickbox"
 "\">Clique aqui e copie o CSS padrão</a> para usar como exemplo."
 
-#: ../simple-responsive-slider-admin.php:194
+#: ../simple-responsive-slider-admin.php:199
 msgid "No, I'll use a custom CSS"
 msgstr "Não, eu vou usar uma CSS personalizada"
 
-#: ../simple-responsive-slider-admin.php:201
+#: ../simple-responsive-slider-admin.php:206
 msgid "Add slide"
 msgstr "Adicionar slide"
 
-#: ../simple-responsive-slider-admin.php:205
+#: ../simple-responsive-slider-admin.php:210
 msgid "Add images and their corresponding link and captions"
 msgstr "Adicionar images e seus correspondes links e legendas"
 
-#: ../simple-responsive-slider-admin.php:212
+#: ../simple-responsive-slider-admin.php:217
 msgid "Crop Images"
 msgstr "Recortar Imagens"
 
-#: ../simple-responsive-slider-admin.php:219
+#: ../simple-responsive-slider-admin.php:224
 msgid "Click and position the crop"
 msgstr "Clique e posicione o recorte"
 
-#: ../simple-responsive-slider.php:86
+#: ../simple-responsive-slider.php:83
 msgid "Prev"
 msgstr "Anterior"
 
@@ -191,23 +199,23 @@ msgstr "Abrir em uma nova janela/aba?"
 msgid "Image caption"
 msgstr "Legenda da imagem"
 
-#: ../classes/options.php:524
+#: ../classes/options.php:525
 msgid "an"
 msgstr "uma"
 
-#: ../classes/options.php:526
+#: ../classes/options.php:527
 msgid "other"
 msgstr "outra"
 
-#: ../classes/options.php:528
+#: ../classes/options.php:529
 msgid "Select"
 msgstr "Selecione"
 
-#: ../classes/options.php:528
+#: ../classes/options.php:529
 msgid "image to crop"
 msgstr "imagem para recortar"
 
-#: ../classes/options.php:533
+#: ../classes/options.php:534
 msgid "Click to crop this image"
 msgstr "Clique para recortar essa imagem"
 
