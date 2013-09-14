@@ -14,9 +14,6 @@
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Enable fopen
-ini_set('allow_url_fopen', 'On');
-
 // Sets the plugin path/url.
 $upload_dir = wp_upload_dir();
 define( 'SIMPLE_RESPONSIVE_SLIDER_URL', plugins_url().'/simple-responsive-slider');

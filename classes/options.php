@@ -509,7 +509,8 @@ class Simpleresponsiveslider_Options {
         $tab = $args['tab'];
         $id  = $args['id'];
 		
-		$image_for_crop = wp_get_attachment_image_src( $args['default'], 'full' );		
+		$image_for_crop = get_attached_file( $args['default']);
+		$image_for_crop_src = wp_get_attachment_image_src( $args['default'], 'full' );		
 		
 		// Sets current option.
         $current = $this->get_option( $tab, $id, $args['default'] );
@@ -552,7 +553,7 @@ class Simpleresponsiveslider_Options {
 		if ( $args['description'] ){
             $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
 		}
-        $html .= '<img src="'.$image_for_crop[0].'" alt="" id="cropbox" />';
+        $html .= '<img src="'.$image_for_crop_src[0].'" alt="" id="cropbox" />';
 		
 		//Get current coordenates
 		$current_x = $this->get_option( $tab, 'x_'.$_GET['editor_image'], $args['default'] );
@@ -562,38 +563,43 @@ class Simpleresponsiveslider_Options {
 		
 		$settings = get_option('simpleresponsiveslider_settings');		
 		
-		//Crop and save the image
-		$targ_w = $settings['max_width'];
-		$targ_h = $settings['min_height'];
+		//Crop and save the image		
+		$targ_w = (empty($settings['max_width'])) ? '1000' : $settings['max_width'];
+		$targ_h = (empty($settings['min_height'])) ? '250' : $settings['min_height'];		
 		$quality = 100;
 		$png_quality = $quality / 10;
 		if($png_quality > 9){
 			$png_quality = 9;
 		}
 
-		$src = $image_for_crop[0];
-		if(exif_imagetype($src) == 1){
-			$img_r = imagecreatefromgif($src);
-		}elseif(exif_imagetype($src) == 2){
-			$img_r = imagecreatefromjpeg($src);
-		}elseif(exif_imagetype($src) == 3){
-			$img_r = imagecreatefrompng($src);
+		$image_path = $image_for_crop;
+							
+		$exif = explode('.', basename($image_path));
+		if($exif[1] == 'gif'){
+		$img_r = imagecreatefromgif($image_path);
+		}elseif($exif[1] == 'jpg'){
+			$img_r = imagecreatefromjpeg($image_path);
+		}elseif($exif[1] == 'png'){
+			$img_r = imagecreatefrompng($image_path);
 		}
+		
 		$dst_r = imagecreatetruecolor( $targ_w, $targ_h );
 		
 		imagecopyresampled($dst_r,$img_r,0,0,$current_x,$current_y,$targ_w,$targ_h,$current_w,$current_h);
 		
-		$filename = basename($src);
+		$filename = basename($image_path);
 		
-		if(exif_imagetype($src) == 1){
+		$exif = explode('.', basename($image_path));
+		if($exif[1] == 'gif'){
 			imagegif($dst_r,SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE.'/srs-'.$filename,$quality);
-		}elseif(exif_imagetype($src) == 2){
+		}elseif($exif[1] == 'jpg'){
 			imagejpeg($dst_r,SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE.'/srs-'.$filename,$quality);
-		}elseif(exif_imagetype($src) == 3){
+		}elseif($exif[1] == 'png'){
 			imagepng($dst_r,SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE.'/srs-'.$filename,$png_quality);
 		}
 		imagedestroy($dst_r);
 		}
+		
 		$html .= '</div>';
 		
         echo $html;
