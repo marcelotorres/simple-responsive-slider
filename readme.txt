@@ -1,5 +1,6 @@
 === Simple Responsive Slider ===
 Contributors: marcelotorres
+Donate link: http://www.marcelotorresweb.com/simple-responsive-slider/
 Tags: slider, responsive
 Requires at least: 3.6
 Tested up to: 3.6
