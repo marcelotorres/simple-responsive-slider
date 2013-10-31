@@ -1,7 +1,7 @@
 === Simple Responsive Slider ===
 Contributors: marcelotorres
+Tags: slider, responsive, slideshow, responsive slider
 Donate link: http://www.marcelotorresweb.com/simple-responsive-slider/
-Tags: slider, responsive
 Requires at least: 3.6
 Tested up to: 3.7
 Stable tag: 0.2
@@ -29,11 +29,11 @@ You can contribute to the source code in our [GitHub](https://github.com/marcelo
 * Navigate to Appearance -> Simple Responsive Slider
 * Add the images and configure the slider if needed
 
-== Use slider in your theme ==
+= Use slider in your theme =
 
-Use this function:
-
-    <?php if ( function_exists( 'show_simpleresponsiveslider' ) ) show_simpleresponsiveslider(); ?>
+Use this function: <?php if ( function_exists( 'show_simpleresponsiveslider' ) ) show_simpleresponsiveslider(); ?><br />
+Or use the shotcode in page or post: [simpleresponsiveslider]<br />
+Or use the widget
 
 == Screenshots ==
 
@@ -47,3 +47,7 @@ Use this function:
 = 0.1 =
 
 * Initial version.
+
+= 0.2 =
+
+* Added shortcode and widget support.
