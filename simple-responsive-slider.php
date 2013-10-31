@@ -188,4 +188,19 @@ function get_simple_responsive_slider() {
 function show_simpleresponsiveslider() {
     echo get_simple_responsive_slider();
 }
-?>
+
+/**
+ * The Simple Responsive Slider Shortcode.
+ *
+ * @return string Simple Responsive Slider HTML.
+ */
+
+add_shortcode('simpleresponsiveslider', 'simpleresponsiveslider_shortcode');
+function simpleresponsiveslider_shortcode() {
+	// Make sure we buffer our output
+	ob_start();
+	$html = get_simple_responsive_slider();
+	$output = ob_get_clean();
+	 
+	return $html . $output;
+}

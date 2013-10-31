@@ -3,8 +3,8 @@ Contributors: marcelotorres
 Donate link: http://www.marcelotorresweb.com/simple-responsive-slider/
 Tags: slider, responsive
 Requires at least: 3.6
-Tested up to: 3.6
-Stable tag: 0.1
+Tested up to: 3.7
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

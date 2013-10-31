@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Responsive Slider\n"
-"POT-Creation-Date: 2013-09-14 10:08-0300\n"
-"PO-Revision-Date: 2013-09-14 10:09-0300\n"
+"POT-Creation-Date: 2013-10-29 17:45-0300\n"
+"PO-Revision-Date: 2013-10-29 17:45-0300\n"
 "Last-Translator: Marcelo Torres <falecom@marcelotorresweb.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -154,6 +154,14 @@ msgstr "Clique e posicione o recorte"
 #: ../simple-responsive-slider.php:83
 msgid "Prev"
 msgstr "Anterior"
+
+#: ../simple-responsive-slider.php:220
+msgid "Show the Simple Responsive Slider"
+msgstr "Mostrar o Simple Responsive Slider"
+
+#: ../simple-responsive-slider.php:256
+msgid "Title:"
+msgstr "Título:"
 
 #: ../classes/options.php:101
 msgid "Add images in gallery"

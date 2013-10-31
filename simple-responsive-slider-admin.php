@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Include classes for option page
 require_once(SIMPLE_RESPONSIVE_SLIDER_PATH.'/classes/options.php');
+require_once(SIMPLE_RESPONSIVE_SLIDER_PATH.'/classes/widget.php');
 
 // Add script in <head> backend
 function load_script_admin() {
