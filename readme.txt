@@ -4,7 +4,7 @@ Tags: slider, responsive, slideshow, responsive slider
 Donate link: http://www.marcelotorresweb.com/simple-responsive-slider/
 Requires at least: 3.6
 Tested up to: 3.7
-Stable tag: 0.2
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,3 +51,8 @@ Or use the widget
 = 0.2 =
 
 * Added shortcode and widget support.
+
+= 0.3 =
+
+* Fix load Jcrop, now it is only loaded in the main cropping image
+* Added Russian localization by Александр Бабанов
