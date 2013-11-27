@@ -5,7 +5,7 @@
  * Description: Put a simple, lightweight and responsive slider on your site. The plugin enables the cropped image so easy, plus the addition of links, captions and other settings. This plugin uses the <a href="http://responsiveslides.com/" target="_blank" title="ResponsiveSlides.js | Simple & lightweight responsive slider plugin ">ResponsiveSlides.js</a> made by <a href="http://viljamis.com/" target="_blank">Viljami</a>.
  * Author: marcelotorres
  * Author URI: http://marcelotorresweb.com/
- * Version: 0.1
+ * Version: 0.2.1
  * License: GPLv2 or later
  * Text Domain: simple-responsive-slider
  * Domain Path: /languages/
