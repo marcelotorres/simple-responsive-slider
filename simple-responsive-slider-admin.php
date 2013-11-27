@@ -11,6 +11,8 @@ require_once(SIMPLE_RESPONSIVE_SLIDER_PATH.'/classes/widget.php');
 function load_script_admin() {
 	$settings = get_option('simpleresponsiveslider_settings');
 	$coord = get_option('simpleresponsiveslider_crop');	
+	
+	if($_GET['page'] == 'simple-responsive-slider' && $_GET['tab'] == 'simpleresponsiveslider_crop' && (!empty($_GET['editor_image']))){
 ?>
     <script type="text/javascript">
 	/**
@@ -39,6 +41,7 @@ function load_script_admin() {
 	});
 	</script>
 <?php
+	}
 }
 add_action('admin_head', 'load_script_admin');
 
