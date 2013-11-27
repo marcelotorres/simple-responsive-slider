@@ -52,7 +52,7 @@ Or use the widget
 
 * Added shortcode and widget support.
 
-= 0.3 =
+= 0.2.1 =
 
 * Fix load Jcrop, now it is only loaded in the main cropping image
 * Added Russian localization by Александр Бабанов
