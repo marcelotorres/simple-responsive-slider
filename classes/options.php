@@ -426,6 +426,9 @@ class Simpleresponsiveslider_Options {
 		
 		// Sets current option.
         $current = $this->get_option( $tab, $id, $args['default'] );
+		/*echo '<pre>';
+		print_r(get_option('simpleresponsiveslider_slides'));
+		echo '</pre>';*/
 		
         $html = '<div class="simpleresponsiveslider-gallery-container">';
 		
@@ -457,33 +460,45 @@ class Simpleresponsiveslider_Options {
 								$thumbnail = '<img src="'.$thumbnail[0].'" alt="" />';
 							}
 							
-                            $html .= sprintf( '<li class="image" data-attachment_id="%1$s">%2$s<ul class="actions"><li><a href="#" class="button delete" title="%3$s">%3$s</a><a href="?page=simple-responsive-slider&tab=simpleresponsiveslider_crop&editor_image='.$attachment_id.'" class="crop button" title="%4$s">%4$s</a></li></ul>',
-                                $attachment_id,
-                                $thumbnail,                                
-                                __( 'Remove image', 'simple-responsive-slider' ),
-                                __( 'Clop image', 'simple-responsive-slider' )
-                            );
-							
 							//Get the link and caption values
 							$current_link = $this->get_option( $tab, 'image_link-'.$attachment_id, $args['default'] );
 							$current_link_target = $this->get_option( $tab, 'image_link_target-'.$attachment_id, $args['default'] );
+							$current_disabled = $this->get_option( $tab, 'image_disabled-'.$attachment_id, $args['default'] );
 							$current_caption = $this->get_option( $tab, 'image_caption-'.$attachment_id, $args['default'] );
-														
+							
 							if($current_link_target == '_blank'){
-								$checked = 'checked';
+								$checked_target = 'checked';
+							}
+							if($current_disabled == '1'){
+								$checked_disabled = 'checked';
+								$is_disabled = 'disabled';
 							}
 							
-							$html .= '<div class="fields">';
-							$html .= sprintf( '<label class="six" for="image_link-'.$attachment_id.'">%4$s<input type="text" id="image_link-'.$attachment_id.'" name="%2$s[image_link-'.$attachment_id.']" value="'.$current_link.'"></label>', $id, $tab, $current, __( 'Image link', 'simple-responsive-slider' ) );
-							$html .= sprintf( '<label class="two" for="image_link_target-'.$attachment_id.'">%5$s
-												<input type="checkbox" id="image_link_target-'.$attachment_id.'" name="%2$s[image_link_target-'.$attachment_id.']" value="_blank" %4$s>
-											</label>', $id, $tab, $current, $checked, __( 'Open in new windown/tab?', 'simple-responsive-slider' ) );
+                            $html .= sprintf( '<li class="%5$s image" data-attachment_id="%1$s">%2$s<ul class="actions"><li><a href="#" class="button delete" title="%3$s">%3$s</a><a href="?page=simple-responsive-slider&tab=simpleresponsiveslider_crop&editor_image='.$attachment_id.'" class="crop button" title="%4$s">%4$s</a></li></ul>',
+                                $attachment_id,
+                                $thumbnail,                                
+                                __( 'Remove image', 'simple-responsive-slider' ),
+                                __( 'Clop image', 'simple-responsive-slider' ),
+								$is_disabled
+                            );
+							
+							$html .= '<div class="fields">';							
+							$html .= sprintf( '<label class="full" for="image_link-'.$attachment_id.'">%4$s<input type="text" id="image_link-'.$attachment_id.'" name="%2$s[image_link-'.$attachment_id.']" value="'.$current_link.'"></label>', $id, $tab, $current, __( 'Image link', 'simple-responsive-slider' ) );
 							$html .= sprintf( '<label class="full" for="image_caption-'.$attachment_id.'">%4$s<textarea id="image_caption-'.$attachment_id.'" name="%2$s[image_caption-'.$attachment_id.']" cols="30" rows="10">'.$current_caption.'</textarea></label>', $id, $tab, $current, __( 'Image caption', 'simple-responsive-slider' ) );
+							$html .= sprintf( '<label class="six" for="image_link_target-'.$attachment_id.'">%5$s
+												<input type="checkbox" id="image_link_target-'.$attachment_id.'" name="%2$s[image_link_target-'.$attachment_id.']" value="_blank" %4$s>
+											</label>', $id, $tab, $current, $checked_target, __( 'Open in new windown/tab?', 'simple-responsive-slider' ) );
+							$html .= sprintf( '<label class="six right" for="image_disabled-'.$attachment_id.'">%5$s
+												<input type="checkbox" id="image_disabled-'.$attachment_id.'" name="%2$s[image_disabled-'.$attachment_id.']" value="1" %4$s>
+											</label>', $id, $tab, $current, $checked_disabled, __( 'Disable image', 'simple-responsive-slider' ));
 							$html .= '</div>';
 							$html .= '</li>';
 							
+							
 							$current_link_target = null;
-							$checked = null;
+							$checked_target = null;
+							$checked_disabled = null;
+							$is_disabled = null;
                         }
                     }
                 }

@@ -3,8 +3,8 @@ Contributors: marcelotorres
 Tags: slider, responsive, slideshow, responsive slider
 Donate link: http://www.marcelotorresweb.com/simple-responsive-slider/
 Requires at least: 3.6
-Tested up to: 3.7
-Stable tag: 0.2.1
+Tested up to: 3.8.1
+Stable tag: 0.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,9 +31,9 @@ You can contribute to the source code in our [GitHub](https://github.com/marcelo
 
 = Use slider in your theme =
 
-Use this function: <?php if ( function_exists( 'show_simpleresponsiveslider' ) ) show_simpleresponsiveslider(); ?><br />
-Or use the shotcode in page or post: [simpleresponsiveslider]<br />
-Or use the widget
+* Use this function: `<?php if ( function_exists( 'show_simpleresponsiveslider' ) ) show_simpleresponsiveslider(); ?>`
+* Or use the shotcode in page or post: [simpleresponsiveslider]
+* Or use the widget
 
 == Screenshots ==
 
@@ -44,15 +44,20 @@ Or use the widget
 
 == Changelog ==
 
-= 0.1 =
+= 0.2.2 =
 
-* Initial version.
+* CSS compatible with the new WordPress 3.8 interface
+* Added 'disable image field'
+
+= 0.2.1 =
+
+* Fix load Jcrop, now it is only loaded in the main cropping image
+* Added Russian localization by Aleksandr Babanov
 
 = 0.2 =
 
 * Added shortcode and widget support.
 
-= 0.2.1 =
+= 0.1 =
 
-* Fix load Jcrop, now it is only loaded in the main cropping image
-* Added Russian localization by Александр Бабанов
+* Initial version.

@@ -5,7 +5,7 @@
  * Description: Put a simple, lightweight and responsive slider on your site. The plugin enables the cropped image so easy, plus the addition of links, captions and other settings. This plugin uses the <a href="http://responsiveslides.com/" target="_blank" title="ResponsiveSlides.js | Simple & lightweight responsive slider plugin ">ResponsiveSlides.js</a> made by <a href="http://viljamis.com/" target="_blank">Viljami</a>.
  * Author: marcelotorres
  * Author URI: http://marcelotorresweb.com/
- * Version: 0.2.1
+ * Version: 0.2.2
  * License: GPLv2 or later
  * Text Domain: simple-responsive-slider
  * Domain Path: /languages/
@@ -58,8 +58,6 @@ class Simple_Responsive_Slider {
 			wp_register_style( 'responsiveslides', plugins_url( '/assets/css/responsiveslides.css', __FILE__ ), array(), '', 'all' );
 			wp_enqueue_style( 'responsiveslides');
 		}
-		//wp_register_style( 'responsiveslides-themes', plugins_url( '/assets/css/themes/themes.css', __FILE__ ), array(), '', 'all' );
-        //wp_enqueue_style( 'responsiveslides-themes');
     }
 	
 	/**
@@ -123,6 +121,11 @@ class Simple_Responsive_Slider {
 		$slider = get_option('simpleresponsiveslider_slides');
 		$settings = get_option('simpleresponsiveslider_settings');		
 		$images_id = explode(',', $slider['image_id']);
+		
+		/*echo '<!--<pre>';
+		print_r($slider);
+		echo '</pre>-->';*/
+		
 		$html = '<div class="rslides_container"><ul class="rslides">';		
 			foreach($images_id as $id){
 				$image_crop = wp_get_attachment_image_src( $id, 'full' );							
@@ -138,7 +141,7 @@ class Simple_Responsive_Slider {
 						$image_cropped = '<img src="'.SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE.'/srs-'.$basename_image_crop.'" alt="'.get_the_title($id).'" />';
 					} else {								
 						$image_cropped = wp_get_attachment_image_src( $id, 'full' );
-						$image_cropped = '<img src="'.$image_cropped[0].'" alt="" />';
+						$image_cropped = '<img src="'.$image_cropped[0].'" alt="'.get_the_title($id).'" />';
 					}
 					if($slider['image_caption-'.$id]){
 						$caption = '<p class="caption">'.$slider['image_caption-'.$id].'</p>';
@@ -150,7 +153,9 @@ class Simple_Responsive_Slider {
 						$link_open = '<a href="'.$slider['image_link-'.$id].'" title="'.$slider['image_caption-'.$id].'" '.$link_target.'>';
 						$link_close = '</a>';
 					}
-					$html .= '<li>'.$link_open.$image_cropped.$caption.$link_close.'</li>';
+					if(!($slider['image_disabled-'.$id] == '1')){
+						$html .= '<li>'.$link_open.$image_cropped.$caption.$link_close.'</li>';
+					}
 					
 					$caption = null;
 					$link_open = null;
