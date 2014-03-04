@@ -83,7 +83,7 @@ class Simpleresponsiveslider_Options {
         // jQuery UI.
         wp_enqueue_script( 'jquery-ui-sortable' );
 		
-		//jClop
+		//jCrop
         wp_enqueue_script( 'jcrop' );
 		wp_enqueue_style( 'jcrop' );
 
@@ -478,7 +478,7 @@ class Simpleresponsiveslider_Options {
                                 $attachment_id,
                                 $thumbnail,                                
                                 __( 'Remove image', 'simple-responsive-slider' ),
-                                __( 'Clop image', 'simple-responsive-slider' ),
+                                __( 'Crop image', 'simple-responsive-slider' ),
 								$is_disabled
                             );
 							
@@ -487,7 +487,7 @@ class Simpleresponsiveslider_Options {
 							$html .= sprintf( '<label class="full" for="image_caption-'.$attachment_id.'">%4$s<textarea id="image_caption-'.$attachment_id.'" name="%2$s[image_caption-'.$attachment_id.']" cols="30" rows="10">'.$current_caption.'</textarea></label>', $id, $tab, $current, __( 'Image caption', 'simple-responsive-slider' ) );
 							$html .= sprintf( '<label class="six" for="image_link_target-'.$attachment_id.'">%5$s
 												<input type="checkbox" id="image_link_target-'.$attachment_id.'" name="%2$s[image_link_target-'.$attachment_id.']" value="_blank" %4$s>
-											</label>', $id, $tab, $current, $checked_target, __( 'Open in new windown/tab?', 'simple-responsive-slider' ) );
+											</label>', $id, $tab, $current, $checked_target, __( 'Open in new window/tab?', 'simple-responsive-slider' ) );
 							$html .= sprintf( '<label class="six right" for="image_disabled-'.$attachment_id.'">%5$s
 												<input type="checkbox" id="image_disabled-'.$attachment_id.'" name="%2$s[image_disabled-'.$attachment_id.']" value="1" %4$s>
 											</label>', $id, $tab, $current, $checked_disabled, __( 'Disable image', 'simple-responsive-slider' ));

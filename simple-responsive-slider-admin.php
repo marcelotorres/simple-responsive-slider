@@ -16,7 +16,7 @@ function load_script_admin() {
 ?>
     <script type="text/javascript">
 	/**
-     * jClop
+     * jCrop
      */
 	jQuery(document).ready(function($) {
 		$(function(){
