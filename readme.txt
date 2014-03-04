@@ -44,6 +44,10 @@ You can contribute to the source code in our [GitHub](https://github.com/marcelo
 
 == Changelog ==
 
+= 0.2.2.1 =
+
+* Fixed some grammatical errors
+
 = 0.2.2 =
 
 * CSS compatible with the new WordPress 3.8 interface
