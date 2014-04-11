@@ -20,14 +20,18 @@ function load_script_admin() {
      */
 	jQuery(document).ready(function($) {
 		$(function(){
-			$('#cropbox').Jcrop({
-				minSize: [ <?php echo $settings['max_width']?>, <?php echo $settings['min_height']?>],
-				maxSize: [ <?php echo $settings['max_width']?>, <?php echo $settings['min_height']?> ],
-				allowResize: true,
-				setSelect:[ <?php echo $coord['x_'.$_GET['editor_image']];?>, <?php echo $coord['y_'.$_GET['editor_image']];?>, <?php echo $coord['x2_'.$_GET['editor_image']];?>, <?php echo $coord['y2_'.$_GET['editor_image']];?> ],
-				onSelect: updateCoords
-			});
+			var cropbox = $('#cropbox')
+                        if(cropbox.length > 0) {
+                            cropbox.Jcrop({
+                                minSize: [ <?php echo $settings['max_width']?>, <?php echo $settings['min_height']?>],
+                                maxSize: [ <?php echo $settings['max_width']?>, <?php echo $settings['min_height']?> ],
+                                allowResize: true,
+                                setSelect:[ <?php echo $coord['x_'.$_GET['editor_image']];?>, <?php echo $coord['y_'.$_GET['editor_image']];?>, <?php echo $coord['x2_'.$_GET['editor_image']];?>, <?php echo $coord['y2_'.$_GET['editor_image']];?> ],
+                                onSelect: updateCoords
+                            });
+                        }
 		});
+
 
 		function updateCoords(c)
 		{
