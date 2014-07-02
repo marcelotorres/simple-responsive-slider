@@ -56,12 +56,14 @@ class Simpleresponsiveslider_Options {
      * @return void
      */
     public function add_page() {
-        add_theme_page(
+        add_menu_page(
             $this->page_title,
             $this->page_title,
             $this->capability,
             $this->slug,
-            array( &$this, 'settings_page' )
+            array( &$this, 'settings_page' ),
+            'dashicons-admin-generic',
+            35
         );
     }
 
