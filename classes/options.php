@@ -35,7 +35,7 @@ class Simpleresponsiveslider_Options {
     public function __construct(
         $page_title = 'Theme Settings',
         $slug       = 'simpleresponsiveslider-settings',
-        $capability = 'manage_options'
+        $capability = 'publish_posts'
     ) {
         $this->page_title = $page_title;
         $this->slug       = $slug;
