@@ -224,7 +224,7 @@ $simpleresponsiveslider_options->set_fields(
 					'id' => 'image_crop',
 					'label' => '',
 					'type' => 'image_crop_for_srs',
-					'default' => $_GET['editor_image'],
+					'default' => isset( $_GET['editor_image'] ) ? $_GET['editor_image'] : '',
 					'description' => __( 'Click and position the crop', 'simple-responsive-slider' ),
 				)				
 			)
