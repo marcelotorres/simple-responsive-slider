@@ -276,7 +276,7 @@ class Simpleresponsiveslider_Options {
             }
         }
 
-        // Register settings.
+        // Regcallback_image_crop_for_srsister settings.
         foreach ( $this->tabs as $tabs ) {
             register_setting( $tabs['id'], $tabs['id'], array( &$this, 'validate_input' ) );
         }
@@ -513,7 +513,7 @@ class Simpleresponsiveslider_Options {
         echo $html;
     }
 	
-	/**
+/**
      * Image Plupload field for Simple Responsive Slider callback.
      *
      * @param array $args Arguments from the option.
@@ -523,19 +523,19 @@ class Simpleresponsiveslider_Options {
     public function callback_image_crop_for_srs( $args ) {
         $tab = $args['tab'];
         $id  = $args['id'];
-		
+
 		$image_for_crop = get_attached_file( $args['default']);
-		$image_for_crop_src = wp_get_attachment_image_src( $args['default'], 'full' );		
-		
+		$image_for_crop_src = wp_get_attachment_image_src( $args['default'], 'full' );
+
 		// Sets current option.
         $current = $this->get_option( $tab, $id, $args['default'] );
-		
+
 		// Get images.
-        $other_images = get_option('simpleresponsiveslider_slides');		
-		
-        $html = '<div class="simpleresponsiveslider-crop-container">';	
-		
-		if($_GET['settings-updated'] || empty($_GET['editor_image'])){
+        $other_images = get_option('simpleresponsiveslider_slides');
+
+        $html = '<div class="simpleresponsiveslider-crop-container">';
+
+		if((isset($_GET['settings-updated'])&&$_GET['settings-updated']) || isset($_GET['editor_image'])){
 			if(empty($_GET['editor_image'])){
 				$term = __('an', 'simple-responsive-slider');
 			}else{
@@ -545,7 +545,7 @@ class Simpleresponsiveslider_Options {
 			$images_id = explode(',', $other_images['image_id']);
 			if ( !empty($images_id) ) {
 				foreach ( $images_id as $other_images_id ) {
-					if($other_images_id != $_GET['editor_image']){					
+					if($other_images_id != $_GET['editor_image']){
 						$html .= sprintf('<a href="?page=simple-responsive-slider&tab=simpleresponsiveslider_crop&editor_image='.$other_images_id.'" title="%s">', __('Click to crop this image', 'simple-responsive-slider') );
 						$html .= wp_get_attachment_image( $other_images_id, array(80, 80) );
 						$html .= '</a>';
@@ -553,34 +553,35 @@ class Simpleresponsiveslider_Options {
 				}
 			}
 		}
-		
+
 		// Adds the hidden input.
 		$html .= sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="simpleresponsiveslider-crop-image" />', $id, $tab, $current );
+    if(isset($_GET['editor_image'])){
 		$html .= sprintf( '<input type="hidden" id="x" name="%2$s[x_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-x" />', $id, $tab, $current );
 		$html .= sprintf( '<input type="hidden" id="y" name="%2$s[y_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-y" />', $id, $tab, $current );
 		$html .= sprintf( '<input type="hidden" id="x2" name="%2$s[x2_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-x" />', $id, $tab, $current );
 		$html .= sprintf( '<input type="hidden" id="y2" name="%2$s[y2_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-y" />', $id, $tab, $current );
 		$html .= sprintf( '<input type="hidden" id="w" name="%2$s[w_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-w" />', $id, $tab, $current );
 		$html .= sprintf( '<input type="hidden" id="h" name="%2$s[h_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-h" />', $id, $tab, $current );
-		
-		if($_GET['editor_image']){
+    }
+		if(isset($_GET['editor_image']) && $_GET['editor_image']){
 		// Displays the description.
 		if ( $args['description'] ){
             $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
 		}
         $html .= '<img src="'.$image_for_crop_src[0].'" alt="" id="cropbox" />';
-		
+
 		//Get current coordenates
 		$current_x = $this->get_option( $tab, 'x_'.$_GET['editor_image'], $args['default'] );
         $current_y = $this->get_option( $tab, 'y_'.$_GET['editor_image'], $args['default'] );
         $current_w = $this->get_option( $tab, 'w_'.$_GET['editor_image'], $args['default'] );
         $current_h = $this->get_option( $tab, 'h_'.$_GET['editor_image'], $args['default'] );
-		
-		$settings = get_option('simpleresponsiveslider_settings');		
-		
-		//Crop and save the image		
+
+		$settings = get_option('simpleresponsiveslider_settings');
+
+		//Crop and save the image
 		$targ_w = (empty($settings['max_width'])) ? '1000' : $settings['max_width'];
-		$targ_h = (empty($settings['min_height'])) ? '250' : $settings['min_height'];		
+		$targ_h = (empty($settings['min_height'])) ? '250' : $settings['min_height'];
 		$quality = 100;
 		$png_quality = $quality / 10;
 		if($png_quality > 9){
@@ -588,7 +589,7 @@ class Simpleresponsiveslider_Options {
 		}
 
 		$image_path = $image_for_crop;
-							
+
 		$exif = explode('.', basename($image_path));
 		if($exif[1] == 'gif'){
 		$img_r = imagecreatefromgif($image_path);
@@ -597,13 +598,13 @@ class Simpleresponsiveslider_Options {
 		}elseif($exif[1] == 'png'){
 			$img_r = imagecreatefrompng($image_path);
 		}
-		
+
 		$dst_r = imagecreatetruecolor( $targ_w, $targ_h );
-		
+
 		imagecopyresampled($dst_r,$img_r,0,0,$current_x,$current_y,$targ_w,$targ_h,$current_w,$current_h);
-		
+
 		$filename = basename($image_path);
-		
+
 		$exif = explode('.', basename($image_path));
 		if($exif[1] == 'gif'){
 			imagegif($dst_r,SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE.'/srs-'.$filename,$quality);
@@ -614,9 +615,9 @@ class Simpleresponsiveslider_Options {
 		}
 		imagedestroy($dst_r);
 		}
-		
+
 		$html .= '</div>';
-		
+
         echo $html;
     }
 

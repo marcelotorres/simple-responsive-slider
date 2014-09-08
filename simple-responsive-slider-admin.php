@@ -12,7 +12,7 @@ function load_script_admin() {
 	$settings = get_option('simpleresponsiveslider_settings');
 	$coord = get_option('simpleresponsiveslider_crop');	
 	
-	if($_GET['page'] == 'simple-responsive-slider' && $_GET['tab'] == 'simpleresponsiveslider_crop' && (!empty($_GET['editor_image']))){
+	if(isset($_GET['page']) && $_GET['page'] == 'simple-responsive-slider' && isset($_GET['tab']) && $_GET['tab'] == 'simpleresponsiveslider_crop' && isset($_GET['editor_image']) && (!empty($_GET['editor_image']))){
 ?>
     <script type="text/javascript">
 	/**
