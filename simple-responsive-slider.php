@@ -82,6 +82,9 @@ class Simple_Responsive_Slider {
 	$next_text = (empty($settings['next_text'])) ? __( 'Next', 'simple-responsive-slider' ) : $settings['next_text'];
 	$max_width = (empty($settings['max_width'])) ? '1000' : $settings['max_width'];
 	
+// 	print_r($settings);
+// 	print_r($min_height);
+	
 	?>
 	<script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -121,11 +124,10 @@ class Simple_Responsive_Slider {
 		$slider = get_option('simpleresponsiveslider_slides');
 		$settings = get_option('simpleresponsiveslider_settings');		
 		$images_id = explode(',', $slider['image_id']);
-		
+		$min_height = (empty($settings['min_height'])) ? '600' : $settings['min_height'];
 		/*echo '<!--<pre>';
 		print_r($slider);
 		echo '</pre>-->';*/
-		
 		$html = '<div class="rslides_container"><ul class="rslides">';		
 			foreach($images_id as $id){
 				$image_crop = wp_get_attachment_image_src( $id, 'full' );							
@@ -137,12 +139,20 @@ class Simple_Responsive_Slider {
 					$image_crop_full_path = SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE.'/srs-'.$filename;
 					
 					//Check if image will cropped
-					if (file_exists($image_crop_full_path)) {
-						$image_cropped = '<img src="'.SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE.'/srs-'.$basename_image_crop.'" alt="'.get_the_title($id).'" />';
-					} else {								
-						$image_cropped = wp_get_attachment_image_src( $id, 'full' );
-						$image_cropped = '<img src="'.$image_cropped[0].'" alt="'.get_the_title($id).'" />';
+				if (file_exists ( $image_crop_full_path )) {
+					if ($settings ['slider_fixedheight'] == 'false' || $settings ['slider_css'] == '') {
+						$image_cropped = '<img src="' . SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE . '/srs-' . $basename_image_crop . '" alt="' . get_the_title ( $id ) . '" />';
+					} else {
+						$image_cropped = '<div class="" style="background-image: url(' . SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE . '/srs-' . $basename_image_crop . ');min-height: '.$min_height.'px; background-repeat: no-repeat; background-size: cover; background-position: center center;" ></div>';
 					}
+				} else {
+					$image_cropped = wp_get_attachment_image_src ( $id, 'full' );
+					if ($settings ['slider_fixedheight'] == 'false' || $settings ['slider_css'] == '') {
+						$image_cropped = '<img src="'.$image_cropped[0].'" alt="'.get_the_title($id).'" />';
+					} else {
+						$image_cropped = '<div class="" style="background-image: url(' . $image_cropped [0] . ');min-height: '.$min_height.'px; background-repeat: no-repeat; background-size: cover; background-position: center center;" ></div>';
+					}
+				}
 					if($slider['image_caption-'.$id]){
 						$caption = '<p class="caption">'.$slider['image_caption-'.$id].'</p>';
 					}

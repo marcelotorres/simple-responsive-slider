@@ -202,6 +202,17 @@ $simpleresponsiveslider_options->set_fields(
 						'true' => __('Yes', 'simple-responsive-slider'),
 						'false' => __('No, I\'ll use a custom CSS', 'simple-responsive-slider'),
 					)
+				),
+				array(
+					'id' => 'slider_fixedheight',
+					'label' => __( 'Fixed height for responsiveness?', 'simple-responsive-slider' ),
+					'type' => 'radio',
+					'default' => 'false',
+					'description' => 'Do you want to keep the height of the image fixed?',
+					'options' => array(						
+						'true' => __('Yes', 'simple-responsive-slider'),
+						'false' => __('No', 'simple-responsive-slider'),
+					)
 				)
 			)
 		),
