@@ -5,7 +5,7 @@
  * Description: Put a simple, lightweight and responsive slider on your site. The plugin enables the cropped image so easy, plus the addition of links, captions and other settings. This plugin uses the <a href="http://responsiveslides.com/" target="_blank" title="ResponsiveSlides.js | Simple & lightweight responsive slider plugin ">ResponsiveSlides.js</a> made by <a href="http://viljamis.com/" target="_blank">Viljami</a>.
  * Author: marcelotorres
  * Author URI: http://marcelotorresweb.com/
- * Version: 0.2.2.1
+ * Version: 0.2.2.2
  * License: GPLv2 or later
  * Text Domain: simple-responsive-slider
  * Domain Path: /languages/
@@ -129,7 +129,14 @@ class Simple_Responsive_Slider {
 		$html = '<div class="rslides_container"><ul class="rslides">';		
 			foreach($images_id as $id){
 				$image_crop = wp_get_attachment_image_src( $id, 'full' );							
-				if(!empty($image_crop[0])){					
+				if(!empty($image_crop[0])){
+					
+					$link_open = '';
+					$image_cropped = '';
+					$caption = '';
+					$link_close = '';
+					$link_target = '';
+					
 					$basename_image_crop = basename($image_crop[0]);				
 					
 					$upload_dir = wp_upload_dir();
@@ -143,17 +150,17 @@ class Simple_Responsive_Slider {
 						$image_cropped = wp_get_attachment_image_src( $id, 'full' );
 						$image_cropped = '<img src="'.$image_cropped[0].'" alt="'.get_the_title($id).'" />';
 					}
-					if($slider['image_caption-'.$id]){
+					if(isset($slider['image_caption-'.$id])){
 						$caption = '<p class="caption">'.$slider['image_caption-'.$id].'</p>';
 					}
-					if($slider['image_link-'.$id]){
-						if($slider['image_link_target-'.$id]){
+					if(isset($slider['image_link-'.$id])){
+						if(isset($slider['image_link_target-'.$id])){
 							$link_target = 'target="_blank"';							
 						}
 						$link_open = '<a href="'.$slider['image_link-'.$id].'" title="'.$slider['image_caption-'.$id].'" '.$link_target.'>';
 						$link_close = '</a>';
 					}
-					if(!($slider['image_disabled-'.$id] == '1')){
+					if(!(isset($slider['image_disabled-'.$id]) == '1')){
 						$html .= '<li>'.$link_open.$image_cropped.$caption.$link_close.'</li>';
 					}
 					

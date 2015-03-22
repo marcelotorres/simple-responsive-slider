@@ -9,10 +9,15 @@ require_once(SIMPLE_RESPONSIVE_SLIDER_PATH.'/classes/widget.php');
 
 // Add script in <head> backend
 function load_script_admin() {
-	$settings = get_option('simpleresponsiveslider_settings');
-	$coord = get_option('simpleresponsiveslider_crop');	
+	$curr_page = isset($_GET['page']) ? $_GET['page'] : '';
+	$curr_tab = isset($_GET['tab']) ? $_GET['tab'] : '';
+	$editor_image = isset($_GET['editor_image']) ? $_GET['editor_image'] : '';
 	
-	if($_GET['page'] == 'simple-responsive-slider' && $_GET['tab'] == 'simpleresponsiveslider_crop' && (!empty($_GET['editor_image']))){
+	$settings = get_option('simpleresponsiveslider_settings');
+	$coord = get_option('simpleresponsiveslider_crop');
+	$coord = (empty($coord)) ? '' : $coord;
+	
+	if($curr_page == 'simple-responsive-slider' && $curr_tab == 'simpleresponsiveslider_crop' && (!empty($editor_image))){
 ?>
     <script type="text/javascript">
 	/**
@@ -24,7 +29,7 @@ function load_script_admin() {
 				minSize: [ <?php echo $settings['max_width']?>, <?php echo $settings['min_height']?>],
 				maxSize: [ <?php echo $settings['max_width']?>, <?php echo $settings['min_height']?> ],
 				allowResize: true,
-				setSelect:[ <?php echo $coord['x_'.$_GET['editor_image']];?>, <?php echo $coord['y_'.$_GET['editor_image']];?>, <?php echo $coord['x2_'.$_GET['editor_image']];?>, <?php echo $coord['y2_'.$_GET['editor_image']];?> ],
+				setSelect:[ <?php echo $coord['x_'.$editor_image];?>, <?php echo $coord['y_'.$editor_image];?>, <?php echo $coord['x2_'.$editor_image];?>, <?php echo $coord['y2_'.$editor_image];?> ],
 				onSelect: updateCoords
 			});
 		});
@@ -48,7 +53,9 @@ add_action('admin_head', 'load_script_admin');
 //New object for create settings
 $simpleresponsiveslider_options = new Simpleresponsiveslider_Options( __( 'Simple Responsive Slider', 'simple-responsive-slider' ), 'simple-responsive-slider' );
 
-if ( $wp_version < 3.6 && $_GET['page'] == 'simple-responsive-slider') {
+$curr_page = isset($_GET['page']) ? $_GET['page'] : '';
+
+if ( $wp_version < 3.6 && $curr_page == 'simple-responsive-slider') {
     echo '<div class="error"><p><strong>';
 	echo __( 'This plugin not is supported in current WordPress version. <a href="./update-core.php">Please update the WordPress for version 3.6 or above.</a>', 'simple-responsive-slider' );
 	echo '</strong></p></div><style type="text/css">p.submit{display:none}</style>';
@@ -224,7 +231,7 @@ $simpleresponsiveslider_options->set_fields(
 					'id' => 'image_crop',
 					'label' => '',
 					'type' => 'image_crop_for_srs',
-					'default' => $_GET['editor_image'],
+					'default' => isset( $_GET['editor_image'] ) ? $_GET['editor_image'] : '',
 					'description' => __( 'Click and position the crop', 'simple-responsive-slider' ),
 				)				
 			)

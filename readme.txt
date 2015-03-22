@@ -1,10 +1,10 @@
 === Simple Responsive Slider ===
 Contributors: marcelotorres
 Tags: slider, responsive, slideshow, responsive slider
-Donate link: http://www.marcelotorresweb.com/simple-responsive-slider/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G85Z9XFXWWHCY
 Requires at least: 3.6
-Tested up to: 3.8.1
-Stable tag: 0.2.2.1
+Tested up to: 4.1.1
+Stable tag: 0.2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,10 @@ You can contribute to the source code in our [GitHub](https://github.com/marcelo
 4. Simple Responsive Slider in action!
 
 == Changelog ==
+
+= 0.2.2.2 =
+
+* Fixed 'undefined variables' and 'undefined index' errors
 
 = 0.2.2.1 =
 
