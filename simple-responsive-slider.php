@@ -5,7 +5,7 @@
  * Description: Put a simple, lightweight and responsive slider on your site. The plugin enables the cropped image so easy, plus the addition of links, captions and other settings. This plugin uses the <a href="http://responsiveslides.com/" target="_blank" title="ResponsiveSlides.js | Simple & lightweight responsive slider plugin ">ResponsiveSlides.js</a> made by <a href="http://viljamis.com/" target="_blank">Viljami</a>.
  * Author: marcelotorres
  * Author URI: http://marcelotorresweb.com/
- * Version: 0.2.2.2
+ * Version: 0.2.2.5
  * License: GPLv2 or later
  * Text Domain: simple-responsive-slider
  * Domain Path: /languages/
@@ -20,6 +20,18 @@ define( 'SIMPLE_RESPONSIVE_SLIDER_URL', plugins_url().'/simple-responsive-slider
 define( 'SIMPLE_RESPONSIVE_SLIDER_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE', $upload_dir['baseurl'].'/simple-responsive-slider' );
 define( 'SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE', $upload_dir['basedir'].'/simple-responsive-slider' );
+
+//Add custom meta links for plugins page
+add_filter( 'plugin_row_meta', 'custom_plugin_row_meta', 10, 2 );
+function custom_plugin_row_meta( $links, $file ) {
+	if ( strpos( $file, 'simple-responsive-slider.php' ) !== false ) {
+		$new_links = array(
+				'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G85Z9XFXWWHCY" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" alt="PayPal - The safer, easier way to pay online!" border="0"></a>'
+			);
+		$links = array_merge( $links, $new_links );
+	}
+	return $links;
+}
 
 // Create folder of image slider
 if (!file_exists(SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE)) {
@@ -143,24 +155,29 @@ class Simple_Responsive_Slider {
 					$filename = $basename_image_crop;
 					$image_crop_full_path = SIMPLE_RESPONSIVE_SLIDER_PATH_DIR_IMAGE.'/srs-'.$filename;
 					
+					$curr_image_link = isset($slider['image_link-'.$id]) ? $slider['image_link-'.$id] : '';
+					$curr_image_link_target = isset($slider['image_link_target-'.$id]) ? $slider['image_link_target-'.$id] : '';
+					$curr_image_caption = isset($slider['image_caption-'.$id]) ? $slider['image_caption-'.$id] : '';
+					$curr_image_disabled = isset($slider['image_disabled-'.$id]) ? $slider['image_disabled-'.$id] : '';
+					
 					//Check if image will cropped
 					if (file_exists($image_crop_full_path)) {
-						$image_cropped = '<img src="'.SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE.'/srs-'.$basename_image_crop.'" alt="'.get_the_title($id).'" />';
+						$image_cropped = '<img src="'.SIMPLE_RESPONSIVE_SLIDER_URL_DIR_IMAGE.'/srs-'.$basename_image_crop.'" alt="'. strip_tags(get_the_title($id)).'" />';
 					} else {								
 						$image_cropped = wp_get_attachment_image_src( $id, 'full' );
-						$image_cropped = '<img src="'.$image_cropped[0].'" alt="'.get_the_title($id).'" />';
+						$image_cropped = '<img src="'.$image_cropped[0].'" alt="'. strip_tags(get_the_title($id)).'" />';
 					}
-					if(isset($slider['image_caption-'.$id])){
-						$caption = '<p class="caption">'.$slider['image_caption-'.$id].'</p>';
+					if($curr_image_caption){
+						$caption = '<p class="caption">'.$curr_image_caption.'</p>';
 					}
-					if(isset($slider['image_link-'.$id])){
-						if(isset($slider['image_link_target-'.$id])){
+					if($curr_image_link){
+						if($curr_image_link_target){
 							$link_target = 'target="_blank"';							
 						}
-						$link_open = '<a href="'.$slider['image_link-'.$id].'" title="'.$slider['image_caption-'.$id].'" '.$link_target.'>';
+						$link_open = '<a href="'.$curr_image_link.'" title="'.$curr_image_caption.'" '.$link_target.'>';
 						$link_close = '</a>';
 					}
-					if(!(isset($slider['image_disabled-'.$id]) == '1')){
+					if(!($curr_image_disabled) == '1'){
 						$html .= '<li>'.$link_open.$image_cropped.$caption.$link_close.'</li>';
 					}
 					

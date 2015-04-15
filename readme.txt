@@ -4,7 +4,7 @@ Tags: slider, responsive, slideshow, responsive slider
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G85Z9XFXWWHCY
 Requires at least: 3.6
 Tested up to: 4.1.1
-Stable tag: 0.2.2.2
+Stable tag: 0.2.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,18 @@ You can contribute to the source code in our [GitHub](https://github.com/marcelo
 4. Simple Responsive Slider in action!
 
 == Changelog ==
+
+= 0.2.2.5 =
+
+* Fixed "Extra spaces at the end of some files" and others small bugs
+
+= 0.2.2.4 =
+
+* Fixed bug describle here -> https://wordpress.org/support/topic/new-update-shows-caption-why
+
+= 0.2.2.3 =
+
+* Fixed bug 'html tags in image title'
 
 = 0.2.2.2 =
 

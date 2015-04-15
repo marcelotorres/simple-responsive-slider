@@ -239,4 +239,3 @@ $simpleresponsiveslider_options->set_fields(
 	)
 );
 }
-?>
