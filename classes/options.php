@@ -465,6 +465,9 @@ class Simpleresponsiveslider_Options {
 							$current_link_target = $this->get_option( $tab, 'image_link_target-'.$attachment_id, $args['default'] );
 							$current_disabled = $this->get_option( $tab, 'image_disabled-'.$attachment_id, $args['default'] );
 							$current_caption = $this->get_option( $tab, 'image_caption-'.$attachment_id, $args['default'] );
+							$is_disabled = '';
+							$checked_target = '';
+							$checked_disabled = '';
 							
 							if($current_link_target == '_blank'){
 								$checked_target = 'checked';
@@ -524,6 +527,9 @@ class Simpleresponsiveslider_Options {
         $tab = $args['tab'];
         $id  = $args['id'];
 		
+		$editor_image = isset($_GET['editor_image']) ? $_GET['editor_image'] : '';
+		$settings_updated = isset($_GET['settings-updated']) ? $_GET['settings-updated'] : '';
+		
 		$image_for_crop = get_attached_file( $args['default']);
 		$image_for_crop_src = wp_get_attachment_image_src( $args['default'], 'full' );		
 		
@@ -535,8 +541,8 @@ class Simpleresponsiveslider_Options {
 		
         $html = '<div class="simpleresponsiveslider-crop-container">';	
 		
-		if($_GET['settings-updated'] || empty($_GET['editor_image'])){
-			if(empty($_GET['editor_image'])){
+		if($settings_updated || empty($editor_image)){
+			if(empty($editor_image)){
 				$term = __('an', 'simple-responsive-slider');
 			}else{
 				$term = __('other', 'simple-responsive-slider');
@@ -545,7 +551,7 @@ class Simpleresponsiveslider_Options {
 			$images_id = explode(',', $other_images['image_id']);
 			if ( !empty($images_id) ) {
 				foreach ( $images_id as $other_images_id ) {
-					if($other_images_id != $_GET['editor_image']){					
+					if($other_images_id != $editor_image){					
 						$html .= sprintf('<a href="?page=simple-responsive-slider&tab=simpleresponsiveslider_crop&editor_image='.$other_images_id.'" title="%s">', __('Click to crop this image', 'simple-responsive-slider') );
 						$html .= wp_get_attachment_image( $other_images_id, array(80, 80) );
 						$html .= '</a>';
@@ -556,14 +562,14 @@ class Simpleresponsiveslider_Options {
 		
 		// Adds the hidden input.
 		$html .= sprintf( '<input type="hidden" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="simpleresponsiveslider-crop-image" />', $id, $tab, $current );
-		$html .= sprintf( '<input type="hidden" id="x" name="%2$s[x_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-x" />', $id, $tab, $current );
-		$html .= sprintf( '<input type="hidden" id="y" name="%2$s[y_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-y" />', $id, $tab, $current );
-		$html .= sprintf( '<input type="hidden" id="x2" name="%2$s[x2_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-x" />', $id, $tab, $current );
-		$html .= sprintf( '<input type="hidden" id="y2" name="%2$s[y2_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-y" />', $id, $tab, $current );
-		$html .= sprintf( '<input type="hidden" id="w" name="%2$s[w_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-w" />', $id, $tab, $current );
-		$html .= sprintf( '<input type="hidden" id="h" name="%2$s[h_'.$_GET['editor_image'].']" value="" class="simpleresponsiveslider-crop-image-coord-h" />', $id, $tab, $current );
+		$html .= sprintf( '<input type="hidden" id="x" name="%2$s[x_'.$editor_image.']" value="" class="simpleresponsiveslider-crop-image-coord-x" />', $id, $tab, $current );
+		$html .= sprintf( '<input type="hidden" id="y" name="%2$s[y_'.$editor_image.']" value="" class="simpleresponsiveslider-crop-image-coord-y" />', $id, $tab, $current );
+		$html .= sprintf( '<input type="hidden" id="x2" name="%2$s[x2_'.$editor_image.']" value="" class="simpleresponsiveslider-crop-image-coord-x" />', $id, $tab, $current );
+		$html .= sprintf( '<input type="hidden" id="y2" name="%2$s[y2_'.$editor_image.']" value="" class="simpleresponsiveslider-crop-image-coord-y" />', $id, $tab, $current );
+		$html .= sprintf( '<input type="hidden" id="w" name="%2$s[w_'.$editor_image.']" value="" class="simpleresponsiveslider-crop-image-coord-w" />', $id, $tab, $current );
+		$html .= sprintf( '<input type="hidden" id="h" name="%2$s[h_'.$editor_image.']" value="" class="simpleresponsiveslider-crop-image-coord-h" />', $id, $tab, $current );
 		
-		if($_GET['editor_image']){
+		if($editor_image){
 		// Displays the description.
 		if ( $args['description'] ){
             $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
@@ -571,10 +577,10 @@ class Simpleresponsiveslider_Options {
         $html .= '<img src="'.$image_for_crop_src[0].'" alt="" id="cropbox" />';
 		
 		//Get current coordenates
-		$current_x = $this->get_option( $tab, 'x_'.$_GET['editor_image'], $args['default'] );
-        $current_y = $this->get_option( $tab, 'y_'.$_GET['editor_image'], $args['default'] );
-        $current_w = $this->get_option( $tab, 'w_'.$_GET['editor_image'], $args['default'] );
-        $current_h = $this->get_option( $tab, 'h_'.$_GET['editor_image'], $args['default'] );
+		$current_x = $this->get_option( $tab, 'x_'.$editor_image, $args['default'] );
+        $current_y = $this->get_option( $tab, 'y_'.$editor_image, $args['default'] );
+        $current_w = $this->get_option( $tab, 'w_'.$editor_image, $args['default'] );
+        $current_h = $this->get_option( $tab, 'h_'.$editor_image, $args['default'] );
 		
 		$settings = get_option('simpleresponsiveslider_settings');		
 		
@@ -644,4 +650,3 @@ class Simpleresponsiveslider_Options {
         return $output;
     }
 }
-?>
